@@ -9,6 +9,8 @@ WORKDIR /app
 COPY package*.json ./
 COPY tsconfig.json .
 
+ENV PORT=8080
+
 COPY src ./src
 
 RUN npm install
