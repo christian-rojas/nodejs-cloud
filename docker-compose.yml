@@ -1,7 +1,8 @@
 version: '3'
 services:
-  web:
-    build:
+  node:
+    restart: always
+    build: 
       context: ./
     volumes:
       - .:/src
@@ -11,3 +12,11 @@ services:
     environment:
       NODE_ENV: development
       PORT: 3000
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+volumes:
+ mongodb:

@@ -9,7 +9,8 @@ WORKDIR /app
 COPY package*.json ./
 COPY tsconfig.json .
 
-ENV PORT=8080
+ENV PORT=3000
+ENV MONGO_URL='mongo'
 
 COPY src ./src
 
@@ -23,5 +24,5 @@ RUN npm run build
 
 # Bundle app source
 
-EXPOSE 8080
+EXPOSE 3000
 CMD [ "node", "dist/index.js" ]

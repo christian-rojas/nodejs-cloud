@@ -1,19 +1,27 @@
-import mongoose from 'mongoose'
+import mongoose, { now } from 'mongoose'
 import { petSchemaModel } from '../models/Pet';
 
-const url = 'mongodb://localhost:27017/test-table';
+// set mongo when docker, localhost when running without
+const url = `mongodb://${process.env.MONGO_URL as string}:27017/test-table`;
 
 export async function main() {
-	// Use connect method to connect to the server
-    mongoose.connect(url)
-    const f = await petSchemaModel.find()
-    console.log(f);
-	// await client.connect();
-	console.log('Connected successfully to server');
-	//   const db = client.db(dbName);
-	//   console.log(db);
-	//   const collection = db.collection('Pet');
-	//   console.log(collection);
+    await mongoose.connect(url)
+	console.log('Connected successfully to mongo');
+}
 
-	return 'done.';
+export async function getPets() {
+	console.log(await petSchemaModel.find());
+}
+
+export async function create() {
+	const pet = new petSchemaModel({
+		name: "gaspar",
+		age: 2,
+		date: Date.now()
+	})
+	try {
+		await pet.save()
+	} catch (error) {
+		console.log(error);
+	}
 }
