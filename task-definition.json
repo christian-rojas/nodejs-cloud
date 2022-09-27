@@ -80,7 +80,8 @@
   ],
   "pidMode": null,
   "requiresCompatibilities": [
-    "EC2"
+    "EC2",
+    "FARGATE"
   ],
   "networkMode": null,
   "runtimePlatform": null,
