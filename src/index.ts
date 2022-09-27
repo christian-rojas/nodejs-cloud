@@ -4,7 +4,7 @@ import { main, create, getPets } from './services'
 import bodyparser from 'body-parser'
 
 const app: Express = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
