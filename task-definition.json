@@ -50,13 +50,13 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "256",
+  "memory": "512",
   "taskRoleArn": "arn:aws:iam::680888261952:role/ecsTaskExecutionRole",
   "compatibilities": [
-    "EXTERNAL",
-    "EC2"
+    "EC2",
+    "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:680888261952:task-definition/task-node:4",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:680888261952:task-definition/task-node:6",
   "family": "task-node",
   "requiresAttributes": [
     {
@@ -76,6 +76,18 @@
       "targetType": null,
       "value": null,
       "name": "ecs.capability.execution-role-ecr-pull"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "ecs.capability.task-eni"
     }
   ],
   "pidMode": null,
@@ -83,10 +95,13 @@
     "EC2",
     "FARGATE"
   ],
-  "networkMode": null,
-  "runtimePlatform": null,
-  "cpu": "1024",
-  "revision": 4,
+  "networkMode": "awsvpc",
+  "runtimePlatform": {
+    "operatingSystemFamily": "LINUX",
+    "cpuArchitecture": null
+  },
+  "cpu": "256",
+  "revision": 6,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
