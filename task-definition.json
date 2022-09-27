@@ -19,7 +19,7 @@
         {
           "hostPort": 8080,
           "protocol": "tcp",
-          "containerPort": 3000
+          "containerPort": 8080
         }
       ],
       "command": [
