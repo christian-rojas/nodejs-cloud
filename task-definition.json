@@ -9,7 +9,7 @@
         "logDriver": "awslogs",
         "secretOptions": null,
         "options": {
-          "awslogs-group": "/ecs/task-node",
+          "awslogs-group": "/ecs/task-nodecloud",
           "awslogs-region": "us-east-1",
           "awslogs-stream-prefix": "ecs"
         }
@@ -23,7 +23,8 @@
         }
       ],
       "command": [
-        "npm run dev"
+        "node",
+        "dist/index.js"
       ],
       "linuxParameters": null,
       "cpu": 0,
@@ -66,8 +67,8 @@
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:680888261952:task-definition/task-node:1",
-  "family": "task-node",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:680888261952:task-definition/task-nodecloud:1",
+  "family": "task-nodecloud",
   "requiresAttributes": [
     {
       "targetId": null,
