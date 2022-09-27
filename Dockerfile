@@ -25,4 +25,4 @@ RUN npm run build
 # Bundle app source
 
 EXPOSE 8080
-CMD [ "node", "dist/index.js" ]
+CMD [ "npm", "start" ]

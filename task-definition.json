@@ -6,7 +6,7 @@
       "dnsSearchDomains": null,
       "environmentFiles": null,
       "logConfiguration": null,
-      "entryPoint": null,
+      "entryPoint": [],
       "portMappings": [
         {
           "hostPort": 8080,
@@ -14,10 +14,18 @@
           "containerPort": 8080
         }
       ],
-      "command": null,
+      "command": [
+        "npm",
+        "start"
+      ],
       "linuxParameters": null,
       "cpu": 0,
-      "environment": [],
+      "environment": [
+        {
+          "name": "PORT",
+          "value": "8080"
+        }
+      ],
       "resourceRequirements": null,
       "ulimits": null,
       "dnsServers": null,
@@ -25,7 +33,7 @@
       "workingDirectory": null,
       "secrets": null,
       "dockerSecurityOptions": null,
-      "memory": 256,
+      "memory": 128,
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
@@ -50,14 +58,14 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "512",
+  "memory": "1024",
   "taskRoleArn": "arn:aws:iam::680888261952:role/ecsTaskExecutionRole",
   "compatibilities": [
-    "EC2",
-    "FARGATE"
+    "EXTERNAL",
+    "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:680888261952:task-definition/task-node:6",
-  "family": "task-node",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:680888261952:task-definition/task-nodecloud:6",
+  "family": "task-nodecloud",
   "requiresAttributes": [
     {
       "targetId": null,
@@ -76,31 +84,15 @@
       "targetType": null,
       "value": null,
       "name": "ecs.capability.execution-role-ecr-pull"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "ecs.capability.task-eni"
     }
   ],
   "pidMode": null,
   "requiresCompatibilities": [
-    "EC2",
-    "FARGATE"
+    "EC2"
   ],
-  "networkMode": "awsvpc",
-  "runtimePlatform": {
-    "operatingSystemFamily": "LINUX",
-    "cpuArchitecture": null
-  },
-  "cpu": "256",
+  "networkMode": null,
+  "runtimePlatform": null,
+  "cpu": "1024",
   "revision": 6,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
