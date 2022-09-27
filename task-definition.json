@@ -9,7 +9,7 @@
         "logDriver": "awslogs",
         "secretOptions": null,
         "options": {
-          "awslogs-group": "/ecs/task-definition",
+          "awslogs-group": "/ecs/task-node",
           "awslogs-region": "us-east-1",
           "awslogs-stream-prefix": "ecs"
         }
@@ -22,7 +22,9 @@
           "containerPort": 3000
         }
       ],
-      "command": null,
+      "command": [
+        "npm run dev"
+      ],
       "linuxParameters": null,
       "cpu": 0,
       "environment": [],
@@ -37,7 +39,7 @@
       "memoryReservation": 128,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "public.ecr.aws/f8r3j8c0/nodecloud",
+      "image": "680888261952.dkr.ecr.us-east-1.amazonaws.com/nodecloud",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -64,8 +66,8 @@
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:680888261952:task-definition/task-definition:1",
-  "family": "task-definition",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:680888261952:task-definition/task-node:1",
+  "family": "task-node",
   "requiresAttributes": [
     {
       "targetId": null,
@@ -78,6 +80,12 @@
       "targetType": null,
       "value": null,
       "name": "ecs.capability.execution-role-awslogs"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
     },
     {
       "targetId": null,
@@ -96,6 +104,12 @@
       "targetType": null,
       "value": null,
       "name": "com.amazonaws.ecs.capability.task-iam-role"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "ecs.capability.execution-role-ecr-pull"
     },
     {
       "targetId": null,
