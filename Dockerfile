@@ -9,7 +9,7 @@ WORKDIR /app
 COPY package*.json ./
 COPY tsconfig.json .
 
-ENV PORT=3000
+ENV PORT=8080
 ENV MONGO_URL='mongo'
 
 COPY src ./src
