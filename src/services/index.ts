@@ -13,10 +13,10 @@ export async function getPets() {
 	console.log(await petSchemaModel.find());
 }
 
-export async function create() {
+export async function create(params: any) {
 	const pet = new petSchemaModel({
-		name: "gaspar",
-		age: 2,
+		name: params.name,
+		age: params.age,
 		date: Date.now()
 	})
 	try {

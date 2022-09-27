@@ -1,17 +1,21 @@
 import express, { Express, Request, Response } from 'express';
 import os from 'os'
 import { main, create, getPets } from './services'
+import bodyparser from 'body-parser'
 
 const app: Express = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
+
+app.use(bodyparser.urlencoded({ extended: false }));
+app.use(bodyparser.json());
 
 app.get('/', async (req: Request, res: Response) => {
   await getPets()
   res.send(`node cloud js - you reach ${os.hostname()}`);
 });
 
-app.get('/create', async (req: Request, res: Response) => {
-  await create()
+app.post('/create', async (req: Request, res: Response) => {
+  await create(req.body)
   res.send('created');
 })
 
