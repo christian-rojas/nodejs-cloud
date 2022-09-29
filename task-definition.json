@@ -6,7 +6,7 @@
       "dnsSearchDomains": null,
       "environmentFiles": null,
       "logConfiguration": null,
-      "entryPoint": [],
+      "entryPoint": null,
       "portMappings": [
         {
           "hostPort": 8080,
@@ -15,17 +15,11 @@
         }
       ],
       "command": [
-        "npm",
-        "start"
+        "npm start"
       ],
       "linuxParameters": null,
       "cpu": 0,
-      "environment": [
-        {
-          "name": "PORT",
-          "value": "8080"
-        }
-      ],
+      "environment": [],
       "resourceRequirements": null,
       "ulimits": null,
       "dnsServers": null,
@@ -33,7 +27,7 @@
       "workingDirectory": null,
       "secrets": null,
       "dockerSecurityOptions": null,
-      "memory": 128,
+      "memory": 256,
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
@@ -58,14 +52,14 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "1024",
+  "memory": "256",
   "taskRoleArn": "arn:aws:iam::680888261952:role/ecsTaskExecutionRole",
   "compatibilities": [
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:680888261952:task-definition/task-nodecloud:6",
-  "family": "task-nodecloud",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:680888261952:task-definition/nodecloud-task:1",
+  "family": "nodecloud-task",
   "requiresAttributes": [
     {
       "targetId": null,
@@ -93,7 +87,7 @@
   "networkMode": null,
   "runtimePlatform": null,
   "cpu": "1024",
-  "revision": 6,
+  "revision": 1,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
