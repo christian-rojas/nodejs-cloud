@@ -14,7 +14,10 @@
           "containerPort": 8080
         }
       ],
-      "command": [],
+      "command": [
+        "node",
+        "dis/index.js"
+      ],
       "linuxParameters": null,
       "cpu": 0,
       "environment": [],
@@ -29,7 +32,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "680888261952.dkr.ecr.us-east-1.amazonaws.com/nodecloud:f3c910b0877e587d6bcdb7292a3aa2b51d802110",
+      "image": "680888261952.dkr.ecr.us-east-1.amazonaws.com/nodecloud",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -56,8 +59,8 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:680888261952:task-definition/node-task:3",
-  "family": "node-task",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:680888261952:task-definition/tasknode:1",
+  "family": "tasknode",
   "requiresAttributes": [
     {
       "targetId": null,
@@ -85,7 +88,7 @@
   "networkMode": null,
   "runtimePlatform": null,
   "cpu": "1024",
-  "revision": 3,
+  "revision": 1,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
