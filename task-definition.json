@@ -32,7 +32,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "680888261952.dkr.ecr.us-east-1.amazonaws.com/nodecloud",
+      "image": "680888261952.dkr.ecr.us-east-1.amazonaws.com/nodecloud:5cf4829f440483be1894b3dd477244442ebd67b5",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -59,7 +59,7 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:680888261952:task-definition/tasknode:1",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:680888261952:task-definition/tasknode:2",
   "family": "tasknode",
   "requiresAttributes": [
     {
@@ -88,7 +88,7 @@
   "networkMode": null,
   "runtimePlatform": null,
   "cpu": "1024",
-  "revision": 1,
+  "revision": 2,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
