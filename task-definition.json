@@ -15,7 +15,8 @@
         }
       ],
       "command": [
-        "npm start"
+        "npm",
+        "start"
       ],
       "linuxParameters": null,
       "cpu": 0,
@@ -27,7 +28,7 @@
       "workingDirectory": null,
       "secrets": null,
       "dockerSecurityOptions": null,
-      "memory": 256,
+      "memory": 128,
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
@@ -52,14 +53,14 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "256",
+  "memory": "512",
   "taskRoleArn": "arn:aws:iam::680888261952:role/ecsTaskExecutionRole",
   "compatibilities": [
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:680888261952:task-definition/nodecloud-task:1",
-  "family": "nodecloud-task",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:680888261952:task-definition/node-task:1",
+  "family": "node-task",
   "requiresAttributes": [
     {
       "targetId": null,
