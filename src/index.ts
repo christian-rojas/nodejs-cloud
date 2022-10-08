@@ -10,7 +10,7 @@ app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 
 app.get('/', async (req: Request, res: Response) => {
-  await getPets()
+  // await getPets()
   res.send(`node cloud js - you reach ${os.hostname()}`);
 });
 
@@ -19,7 +19,7 @@ app.post('/create', async (req: Request, res: Response) => {
   res.send('created');
 })
 
-app.listen(port, async () => {
-  await main()
+app.listen({port, host: '0.0.0.0'}, async () => {
+  // await main()
   console.log(`⚡️[server]: Server is running on port: ${port}`);
 });
