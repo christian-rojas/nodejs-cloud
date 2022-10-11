@@ -10,8 +10,9 @@ app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 
 app.get('/', async (req: Request, res: Response) => {
-  // await getPets()
-  res.send(`node cloud js - you reach ${os.hostname()}`);
+  const mainRetunr = await main()
+  const pets = await getPets()
+  res.send(`node cloud js - you reach ${os.hostname()} - ${ mainRetunr } - ${ pets } /`);
 });
 
 app.post('/create', async (req: Request, res: Response) => {

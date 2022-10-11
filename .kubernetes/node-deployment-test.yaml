@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-deploy
+  template:
+    metadata:
+      labels:
+        app: node-deploy
+    spec:
+      containers:
+        - name: node-deploy
+          image: crojastru/nodecloud:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MONGO_URL
+              value: mongo
+          imagePullPolicy: Always

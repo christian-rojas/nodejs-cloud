@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: node-app
-        image: #path to your docker image
+        image: crojastru/nodecloud:latest
         ports:
         - containerPort: 8080

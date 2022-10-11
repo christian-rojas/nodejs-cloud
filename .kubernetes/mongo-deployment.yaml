@@ -1,17 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongodb
+  name: mongo-app
 spec:
+  selector:
+    matchLabels:
+      app: mongo-app
   template:
     metadata:
       labels:
-        app: mongodb
+        app: mongo-app
     spec:
       containers:
-      - name: mongodb
+      - name: mongo-app
         image: mongo
+        command:
+        - mongod
+        - "--bind_ip_all"
         ports:
         - name: mongodbport
-          containerPort: 27017
+          containerPort: 30332
           protocol: TCP
