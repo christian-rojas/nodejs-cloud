@@ -3,7 +3,7 @@ import { petSchemaModel } from '../models/Pet';
 
 // set mongo when docker, localhost when running without
 // const url = `mongodb://${process.env.MONGO_URL as string}:27017/test-table`;
-const url = `mongodb://192.168.64.5:30332/test-table`;
+const url = `mongodb://192.168.64.7:30332/test-table`;
 
 export async function main() {
     return await mongoose.connect(url)
