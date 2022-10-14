@@ -11,7 +11,7 @@ app.use(bodyparser.json());
 
 app.get('/', async (req: Request, res: Response) => {
   const pets = await getPets()
-  // console.log(pets);
+  res.status(200)
   res.send(`node cloud js - you reach ${os.hostname()} - ${ pets } /`);
 });
 
