@@ -40,7 +40,6 @@ app.listen({port, host: '0.0.0.0'}, async () => {
   console.time("start")
   await client.set('key', 'mortis');
   const value = await client.get('key');
-  console.timeEnd("start")
-  console.log(value);
+  console.log(value)
   console.log(`⚡️[server]: Server is running on port: ${port}`);
 });
