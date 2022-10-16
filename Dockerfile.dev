@@ -1,0 +1,16 @@
+FROM node:16-alpine
+WORKDIR /usr/local/apps/node
+
+COPY package.json ./
+COPY tsconfig.json ./
+RUN npm install && npm cache clean --force
+ENV PATH=/usr/local/node/node_modules/.bin:$PATH
+
+WORKDIR /usr/local/apps/node/dev
+COPY tsconfig.json ./
+
+COPY src ./src
+
+EXPOSE 8080
+
+CMD ["npm", "run", "start:watch"]
