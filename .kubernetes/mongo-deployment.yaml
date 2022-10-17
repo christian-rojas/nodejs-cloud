@@ -14,10 +14,17 @@ spec:
       containers:
       - name: mongo-app
         image: mongo
-        command:
-        - mongod
-        - "--bind_ip_all"
+        env:
+        - name: MONGO_URL
+          value: "192.168.64.7"
+        - name: MONGO_PORT
+          value: "30332"
+        command: ["mongod", "--bind_ip_all"]
+        resources:
+          limits:
+            cpu: "512m"
+            memory: "512m"
         ports:
-        - name: mongodbport
-          containerPort: 30332
+        - name: mongodb-port
+          containerPort: 27017
           protocol: TCP

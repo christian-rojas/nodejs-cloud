@@ -25,7 +25,7 @@ app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 
 app.get('/', async (req: Request, res: Response) => {
-  // const pets = await getPets()
+  console.log(await getPets())
   res.send(`node cloud js - you reach ${os.hostname()}`);
 });
 
@@ -35,11 +35,13 @@ app.post('/create', async (req: Request, res: Response) => {
 })
 
 app.listen({port, host: '0.0.0.0'}, async () => {
-  // await main()
+  await main()
   await client.connect();
   console.time("start")
+  console.time("mortis")
   await client.set('key', 'mortis');
   const value = await client.get('key');
   console.log(value)
-  console.log(`⚡️[server]: Server is running on port: ${port}`);
+  console.timeEnd("mortis")
+  console.log(`[server]: Server is running on port: ${port}`);
 });
