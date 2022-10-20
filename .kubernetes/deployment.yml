@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-deploy
+  template:
+    metadata:
+      labels:
+        app: node-deploy
+    spec:
+      containers:
+        - name: node-deploy
+          image: crojastru/nodecloud:latest
+          resources:
+            limits:
+              cpu: "512m"
+              memory: "512"
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MONGO_URL
+              value: mongo
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-app-service
+spec:
+  selector:
+    app: node-deploy 
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+    nodePort: 31110
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-app
+spec:
+  selector:
+    matchLabels:
+      app: mongo-app
+  template:
+    metadata:
+      labels:
+        app: mongo-app
+    spec:
+      containers:
+      - name: mongo-app
+        image: mongo
+        env:
+        - name: MONGO_URL
+          value: "192.168.64.7"
+        - name: MONGO_PORT
+          value: "30332"
+        command: ["mongod", "--bind_ip_all"]
+        resources:
+          limits:
+            cpu: "512m"
+            memory: "512"
+        ports:
+        - name: mongodb-port
+          containerPort: 27017
+          protocol: TCP
+---
+apiVersion: "v1"
+kind: "Service"
+metadata: 
+  name: "mongo-app"
+  labels: 
+    app: "mongo-app"
+spec: 
+  selector:
+    app: "mongo-app"
+  ports:
+  - port: 27017
+    protocol: TCP
+    targetPort: 27017
+    nodePort: 30332
+  type: "NodePort"

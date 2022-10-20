@@ -7,6 +7,7 @@ import { petSchemaModel } from '../models/Pet'
 const url = `mongodb://${process.env.MONGO_URL as string}:${process.env.MONGO_PORT as string}/test-table`
 
 export async function main (): Promise<any> {
+  console.log(url)
   await mongoose.connect(url)
   return 'Connected successfully to mongo'
 }
