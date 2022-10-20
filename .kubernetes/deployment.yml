@@ -17,13 +17,15 @@ spec:
           image: crojastru/nodecloud:latest
           resources:
             limits:
-              cpu: "512m"
-              memory: "512"
+              cpu: "1"
+              memory: "512Mi"
           ports:
             - containerPort: 8080
           env:
             - name: MONGO_URL
-              value: mongo
+              value: "192.168.64.7"
+            - name: MONGO_PORT
+              value: "30332"
           imagePullPolicy: Always
 ---
 apiVersion: v1
@@ -64,8 +66,8 @@ spec:
         command: ["mongod", "--bind_ip_all"]
         resources:
           limits:
-            cpu: "512m"
-            memory: "512"
+            cpu: "1"
+            memory: "512Mi"
         ports:
         - name: mongodb-port
           containerPort: 27017
