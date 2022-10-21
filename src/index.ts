@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from 'express'
 import os from 'os'
-import { main, create, getPets } from './services'
+import { create } from './services'
 import bodyparser from 'body-parser'
 // import { createClient } from 'redis'
 
@@ -24,7 +24,7 @@ app.use(bodyparser.json())
 
 // eslint-disable-next-line @typescript-eslint/no-misused-promises
 app.get('/', async (_req: Request, res: Response) => {
-  console.log(await getPets())
+  // console.log(await getPets())
   res.send(`node cloud js - you reach ${os.hostname()}`)
 })
 
@@ -36,7 +36,7 @@ app.post('/create', async (req: Request, res: Response) => {
 
 // eslint-disable-next-line @typescript-eslint/no-misused-promises
 app.listen({ port, host: '0.0.0.0' }, async () => {
-  await main()
+  // await main()
   // await client.connect()
   // console.time('start')
   // console.time('mortis')
